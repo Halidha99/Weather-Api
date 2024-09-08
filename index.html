@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>⚡Atmosphere APP🌍</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Video Background -->
+    <video autoplay loop muted src="images/25555540_weather-forecast-x_by_sardorio_preview.mp4"
+        aria-label="Weather Forecast Background Video"></video>
+
+    <!---------------------------------------------- Header Section ------------------------------------------------------------->
+    <header>
+        <nav>
+            <div class="nav-links" id="navLnks">
+                <!-- <i class="fa fa-times" onclick="hideMenu()"></i> -->
+                <ul>
+                    <li><a href="#weather-input">HOME</a></li>
+                    <li><a href="#current-weather">CURRENT</a></li>
+                    <li><a href="#weather-forecast">FORECAST</a></li>
+                    <li><a href="#weather-map">MAP</a></li>
+                    <li><a href="#history">HERITAGE</a></li>
+                    <li><a href="#footer">SUBSCRIBE</a></li>
+                </ul>
+            </div>
+            <!-- <i class="fa fa-bars" onclick="showMenu()"></i> -->
+        </nav>
+        <h1 class="title">🌔 <b>Sky</b> Report 📜</h1>
+
+        <!-- Search Bar Section -->
+        <div class="weather-input">
+            <div class="input-group">
+                <select id="converter" class="form-select">
+                    <option value="C">°C</option>
+                    <option value="F">°F</option>
+                </select>
+                <input type="text" id="userplaces" class="form-control" placeholder="Search for Location..."
+                    aria-label="User Location" aria-describedby="button-addon2" />
+                <i class="fa fa-search search-icon"></i>
+                <button class="btn btn-outline-secondary" type="button" id="search">Search</button>
+            </div>
+        </div>
+    </header>
+    <!---------------------------------------------- Header Section END ------------------------------------------------->
+
+    <br><br>
+
+    <!--------------------------------------------------- CURRENT Weather ------------------------------------------------------>
+    <section id="current-weather">
+        <h1 class="heders">Current Weather🍃</h1>
+        <div class="weather-card">
+            <div class="weather-icon">
+                <img class="weatherIcon-1" id="weatherIcon" alt="Weather Icon"
+                    src="https://openweathermap.org/img/wn/10d@4x.png" />
+            </div>
+            <div class="weather-info">
+                <h3 class="location name" id="location">Galle</h3>
+                <p class="temperature temp_c">30°C</p>
+                <p class="description url">Partly cloudy</p>
+                <label class="timeAndDate" id="time" for="time">17:25</label><br />
+                <label class="day" id="date" for="day">Tuesday</label><br />
+            </div>
+        </div>
+        <div class="weather-details">
+            <h2 class="header">Today's Highlights</h2>
+            <div class="highlight">
+                <div class="humidity">
+                    Humidity
+                    <i class="fa-solid fa-water"></i>
+                    <h1 class="HValue"></h1>
+                </div>
+                <div class="wind-speed">
+                    Wind Speed
+                    <i class="fa-solid fa-wind"></i>
+                    <h1 class="WValue"></h1>
+                </div>
+                <div class="sun">
+                    <span>
+                        <i class="fa-solid fa-sun"></i>
+                        <p><span id="SRValue">Sunrise</span></p>
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-sun"></i>
+                        <p><span id="SSValue">Sunset</span></p>
+                    </span>
+                </div>
+                <div class="clouds">
+                    Clouds
+                    <i class="fa-solid fa-cloud"></i>
+                    <h1 class="CValue"></h1>
+                </div>
+                <div class="uv-index">
+                    UV Index
+                    <i class="fa-solid fa-bacon"></i>
+                    <h1 class="UValue"></h1>
+                </div>
+                <div class="pressure">
+                    Pressure
+                    <i class="fa-solid fa-volcano"></i>
+                    <h1 class="PValue"></h1>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--------------------------------------------------- WEATHER FORECAST Section --------------------------------------------->
+    <section id="weather-forecast">
+        <h1 class="heders">Weekly Weather Outlook</h1>
+        <div class="date-Search">
+            Start Date: <input type="date" id="stardate">&nbsp;&nbsp;&nbsp;
+            End Date: <input type="date" id="enddate">
+            <input type="button" id="searchForcaste" value="Search">
+        </div>
+
+        <div class="forecast-container">
+                <ul class="weather-cards">
+                    <li class="cards">
+                        <h3>2024.09.01</h3>
+                        <img src="images/clearSkypng.png" alt="Weather Icon">
+                        <h4>Clear Sky</h4>
+                        <h4>Temp:35°C</h4>
+                    </li>
+                    <li class="cards">
+                        <h3>2024.09.02</h3>
+                        <img src="images/few clouds.png" alt="Weather Icon">
+                        <h4>few clouds</h4>
+                        <h4>Temp:30°C</h4>
+                    </li>
+                    <li class="cards">
+                        <h3>2024.09.03</h3>
+                        <img src="images/broken clouds.jpeg" alt="Weather Icon">
+                        <h4>broken clouds</h4>
+                        <h4>Temp:27°C</h4>
+                    </li>
+                    <li class="cards">
+                        <h3>2024.09.04</h3>
+                        <img src="images/shower rainpng.png" alt="Weather Icon">
+                        <h4>shower rain</h4>
+                        <h4>Temp:24°C</h4>
+                    </li>
+                    <li class="cards">
+                        <h3>2024.09.05</h3>
+                        <img src="images/rain.png" alt="Weather Icon">
+                        <h4>rain</h4>
+                        <h4>Temp:20°C</h4>
+                    </li>
+                    <li class="cards">
+                        <h3>2024.09.06</h3>
+                        <img src="images/thunderstorm.png" alt="Weather Icon">
+                        <h4>thunderstorm</h4>
+                        <h4>Temp:19°C</h4>
+                    </li>
+                    <li class="cards">
+                        <h3>2024.09.07</h3>
+                        <img src="images/11166805.png" alt="Weather Icon">
+                        <h4>Drizzle</h4>
+                        <h4>Temp:25°C</h4>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </section>
+
+    <!--------------------------------------------------- WEATHER MAP Section -------------------------------------------------->
+    <section id="weather-map">
+        <h1 class="heders">Map</h1>
+
+        <div id="map" style="height: 400px; width: 100%;">
+            <img src="images/GoogleMapTA.webp" width="100%" height="400px%" id="image" alt="">
+        </div>
+
+    </section>
+
+
+    <!--------------------------------------------------- HISTORY Section ------------------------------------------------------->
+    <section id="history">
+        <h2 class="heders">Historical Weather News</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h4>2004 Indian Ocean Tsunami</h4>
+                <p class="date">Date: December 26, 2004</p>
+                <p>
+                    One of the most devastating natural disasters in modern history, the Indian Ocean Tsunami severely
+                    impacted Sri Lanka. Over 30,000 lives were lost, and entire coastal communities were destroyed by
+                    the giant waves.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h4>2016 Floods and Landslides</h4>
+                <p class="date">Date: May 15-23, 2016</p>
+                <p>
+                    Severe monsoonal rains led to deadly floods and landslides in Sri Lanka. Nearly 200 people died, and
+                    many were left homeless as the floodwaters devastated cities and villages alike.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h4>1978 Cyclone</h4>
+                <p class="date">Date: December 23-24, 1978</p>
+                <p>
+                    A powerful cyclone struck the northern and eastern coasts, causing massive damage to homes and
+                    infrastructure. Winds reaching up to 120 km/h claimed over 1,000 lives and disrupted the fishing and
+                    agriculture sectors.
+                </p>
+            </div>
+
+            <!-- Card 4: 2017 Drought -->
+            <div class="card">
+                <h4>2017 Drought</h4>
+                <p class="date">Date: January - June 2017</p>
+                <p>
+                    One of the worst droughts in recent history, the 2017 drought affected over 2 million people,
+                    leading to severe water shortages and an agricultural crisis.
+                </p>
+            </div>
+
+            <!-- Card 5: 2020 Cyclone Burevi -->
+            <div class="card">
+                <h4>2020 Cyclone Burevi</h4>
+                <p class="date">Date: December 2-3, 2020</p>
+                <p>
+                    Cyclone Burevi brought heavy rains and strong winds to Sri Lanka, causing localized flooding and
+                    power outages, especially in the northern and eastern provinces.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ----------------------------------------------------END SECTION-------------------------------------------------- -->
+
+    <!--------------------------------------------------- FOOTER Section ------------------------------------------------------->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="newsletter">
+                <h2 class="footer-title">Subscribe to Our Newsletter</h2>
+                <p class="footer-description">
+                    Stay updated with the latest weather updates, news, and tips directly in your inbox.
+                </p>
+                <div class="subscription-form">
+                    <label for="email-address" class="sr-only">Email address</label>
+                    <input id="email-address" name="email" type="email" autocomplete="email" required
+                        class="email-input" placeholder="Enter your email" />
+                    <button type="submit" class="subscribe-button">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="contact-info">
+                    <h2 class="footer-title">Contact Us</h2>
+                    <p class="contact-item">Email: atmosphereappCloudWatch.com</p>
+                    <p class="contact-item">Phone: +94 776578963</p>
+                    <p class="contact-item">Address: 44 Weather Lane, Climate City</p>
+                </div>
+                <div class="social-media">
+                    <h2 class="footer-title">Follow Us</h2>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/atmosphereapp" target="_blank" class="social-icon"
+                            aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/atmosphereapp" target="_blank" class="social-icon"
+                            aria-label="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/atmosphereapp" target="_blank" class="social-icon"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/atmosphereapp" target="_blank" class="social-icon"
+                            aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Atmosphere App. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
